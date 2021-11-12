@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 import {
     Switch,
     Route,
@@ -18,53 +18,47 @@ import Review from '../Review/Review';
 
 const DashBoard = () => {
     let { path, url } = useRouteMatch();
-    const {admin} = useAuth();
+    const { admin } = useAuth();
 
     return (
         <div>
-            {/* <PaymentSystem></PaymentSystem>
-            <MyOrders></MyOrders>
-            <Review></Review> */}
-
-            <h1>DashBoard</h1>
 
 
-            <Navbar bg="secondary" expand={false}>
-                <Container fluid>
-                    <Navbar.Toggle aria-controls="offcanvasNavbar" />
-                    <Navbar.Offcanvas
-                        id="offcanvasNavbar"
-                        aria-labelledby="offcanvasNavbarLabel"
-                        placement="start"
-                    >
-                        <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id="offcanvasNavbarLabel">DashBoard</Offcanvas.Title>
-                        </Offcanvas.Header>
-                        <Offcanvas.Body>
-                            <Nav className="justify-content-end flex-grow-1 pe-3">
-                                <Link to="/products">Products</Link>
-                                {/* <Link to={`${url}`}>DashBoard</Link> */}
-                                <Link to={`${url}/paymentsystem`}>Payment Method</Link>
-                                <Link to={`${url}/myorders`}>My Orders</Link>
-                                <Link to={`${url}/review`}>Review</Link>
-                                {
-                                    admin && <>
-                                    
-                                    <Link to={`${url}/manageAllOrders`}>Manage All Orders</Link>
-                                    <Link to={`${url}/addProducts`}>Add Products</Link>
-                                    <Link to={`${url}/makeAdmin`}>Make Admin</Link>
-                                    <Link to={`${url}/manageProducts`}>Manage Products</Link>
-                                    </>
-                                }
+            <h1 className="text-center my-3 fw-bold">DashBoard</h1>
 
-                            </Nav>
-                        </Offcanvas.Body>
-                    </Navbar.Offcanvas>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Container>
+                    <NavLink as={Link} to="/" style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight:"600"}}>Home</NavLink>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav" >
+                        <Nav className="me-auto">
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight:"600" }} to="/products">Products</NavLink>
+                            
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "2px", fontWeight:"600" }} to={`${url}/myorders`}>My Orders</NavLink>
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px",fontWeight:"600" }} to={`${url}/paymentsystem`}>Payment Method</NavLink>
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white" , fontWeight:"600"}} to={`${url}/review`}>Review</NavLink>
+
+                            
+                        </Nav>
+
+                        <Nav>
+                            {admin && <NavDropdown title="Admin Panel" style={{color:"white"}} className="fw-bold active">
+                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/manageAllOrders`}>Manage All Orders</NavLink><br />
+                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/addProducts`}>Add Products</NavLink><br />
+                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/makeAdmin`}>Make Admin</NavLink><br />
+                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/manageProducts`}>Manage Products</NavLink>
+                            </NavDropdown>}
+                        </Nav>
+
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
 
             <Switch>
                 <Route exact path={path}>
+                    <MyOrders></MyOrders>
+                </Route>
+                <Route path={`${path}/myorders`}>
                     <MyOrders></MyOrders>
                 </Route>
                 <Route path={`${path}/paymentsystem`}>
@@ -79,7 +73,7 @@ const DashBoard = () => {
                 <AdminRoute path={`${path}/addProducts`}>
                     <AddProducts></AddProducts>
                 </AdminRoute>
-                
+
                 <AdminRoute path={`${path}/makeAdmin`}>
                     <MakeAdmin></MakeAdmin>
                 </AdminRoute>
@@ -87,6 +81,10 @@ const DashBoard = () => {
                     <ManageProducts></ManageProducts>
                 </AdminRoute>
             </Switch>
+
+
+
+
 
         </div>
     );

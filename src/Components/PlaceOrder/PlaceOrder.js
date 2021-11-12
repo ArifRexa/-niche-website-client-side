@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { FloatingLabel, Form, Button, Container, Col, Row, Alert } from 'react-bootstrap';
+import { Form, Button, Container, Col, Row, Alert } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
@@ -17,7 +19,7 @@ const PlaceOrder = () => {
         fetch(`https://damp-taiga-56462.herokuapp.com/watches/${_id}`)
             .then(res => res.json())
             .then(data => setDetails(data))
-    }, [])
+    }, [_id])
 
 
     const hanldeOnBlur = e => {
@@ -37,12 +39,15 @@ const PlaceOrder = () => {
         //Collect Data
         const order = {
             ...ordersInfo,
+            name: initialInfo.name,
+            email: initialInfo.email,
             Model: details.name,
             Brand: details.Brand,
-            Price: details.price
+            Price: details.price,
+            status: "pending"
 
         }
-        // console.log(order);
+        console.log(order);
         fetch("https://damp-taiga-56462.herokuapp.com/orders", {
             method: "POST",
             headers: {
@@ -61,10 +66,10 @@ const PlaceOrder = () => {
 
     return (
         <div>
-            <h1>Your orders</h1>
+            <h1 className="fw-bold my-5 text-center">Confirm Your Order</h1>
             {
                 orderConfirmed && <Alert variant="success">
-                    Order Confirem successfully !
+                    <FontAwesomeIcon icon={faCheckCircle} /> Order Confirem successfully !
                 </Alert>
             }
             <Container className="w-50">
@@ -90,11 +95,6 @@ const PlaceOrder = () => {
                                 placeholder="Enter Email"
                                 defaultValue={user.email} />
                         </Form.Group>
-
-                        {/* <Form.Group as={Col} controlId="formGridPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" />
-                            </Form.Group> */}
                     </Row>
 
                     <Row className="mb-3" xs={1} md={2} lg={3}>
@@ -146,7 +146,7 @@ const PlaceOrder = () => {
                     </Row>
 
                     <Button variant="primary" type="submit">
-                        Submit
+                        Confirm
                     </Button>
                 </Form>
 

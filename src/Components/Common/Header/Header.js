@@ -1,40 +1,43 @@
 import React from 'react';
-import { Container, Form, FormControl, Nav, Navbar, NavDropdown, Offcanvas, Button } from 'react-bootstrap';
+import { Container, Form, FormControl, Nav, Navbar, Offcanvas, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faClock, faTachometerAlt, faSignOutAlt, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
-    const {user, logOut} = useAuth()
+    const { user, logOut } = useAuth()
     return (
         <div>
-            <Navbar bg="light" expand={false}>
+            <Navbar bg="info" expand={false} fixed="top">
                 <Container fluid>
-                    <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+                    <Nav.Link as={Link} to="/home" style={{color:"white", textDecoration:"none", fontWeight:"bold"}}>KBO WATCH</Nav.Link>
                     <Navbar.Toggle aria-controls="offcanvasNavbar" />
                     <Navbar.Offcanvas
                         id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel"
-                        placement="end"
+                        placement="start"
                     >
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id="offcanvasNavbarLabel">Offcanvas</Offcanvas.Title>
+                            <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <Nav className="justify-content-end flex-grow-1 pe-3">
-                                <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                                <Nav.Link as={Link} to="/products">Products</Nav.Link>
+                                <Nav.Link as={Link} to="/home" style={{color:"black", fontWeight:"600"}}>
+                                <FontAwesomeIcon icon={faHome} /> Home</Nav.Link>
+                                <Nav.Link as={Link} to="/products" style={{color:"black", fontWeight:"600"}}><FontAwesomeIcon icon={faClock} /> Products</Nav.Link>
                                 {
                                     user?.email ?
-                                    <>
-                                    <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
-                                    <Nav.Link as={Link} onClick={logOut} to="/login">LogOut</Nav.Link>
-                                    
-                                    </>:
-                                    <Nav.Link as={Link} to="/login">Login</Nav.Link>
-                                }
-                                
+                                        <>
+                                            <Nav.Link as={Link} to="/dashboard" style={{color:"black", fontWeight:"600"}}><FontAwesomeIcon icon={faTachometerAlt} /> Dashboard</Nav.Link>
+                                            <Nav.Link as={Link} onClick={logOut} to="/login" style={{color:"black", fontWeight:"600"}}><FontAwesomeIcon icon={faSignOutAlt} /> LogOut</Nav.Link>
 
-                                
+                                        </> :
+                                        <Nav.Link as={Link} to="/login" style={{color:"black", fontWeight:"600"}}><FontAwesomeIcon icon={faSignInAlt} /> Login</Nav.Link>
+                                }
+
+
+
                             </Nav>
                             <Form className="d-flex">
                                 <FormControl

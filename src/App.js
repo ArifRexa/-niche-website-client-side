@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Home from './Components/Home/Home/Home';
 import Products from './Components/Products/Products';
@@ -27,8 +26,6 @@ import ManageProducts from './Components/DashBoard/ManageProducts/ManageProducts
 function App() {
   return (
     <div>
-      <h1>Welcome to KBO WATCH</h1>
-
       <AuthProvider>
 
         <Router>

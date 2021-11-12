@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { Form, Button, Alert, Container } from 'react-bootstrap';
 
 const MakeAdmin = () => {
@@ -29,11 +31,10 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-            <Container>
-                <h1>Make Admin</h1>
+                <h1 className="fw-bold my-5 text-center">Make Admin</h1>
                 {
                     success && <Alert variant="success">
-                        Admin Make Successfully !
+                        <FontAwesomeIcon icon={faCheckCircle} /> Admin Make Successfully !
                     </Alert>
                 }
                 <Container className="w-50">
@@ -47,7 +48,6 @@ const MakeAdmin = () => {
                     </Form>
 
                 </Container>
-            </Container>
 
         </div>
     );

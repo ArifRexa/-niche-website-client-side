@@ -8,7 +8,7 @@ const ProductsData = (props) => {
         <div>
             <Col>
                 <Card>
-                    <Card.Img variant="top" src={imgUrl} />
+                    <Card.Img className="img-size" variant="top" src={imgUrl} />
                     <Card.Body>
                         <Card.Title>Model Name: {name}</Card.Title>
                         <Card.Title>Brand Name: {Brand}</Card.Title>
