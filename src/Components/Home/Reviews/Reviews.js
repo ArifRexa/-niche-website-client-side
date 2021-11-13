@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
-import Review from '../../DashBoard/Review/Review';
 import ReviewsAllData from './ReviewsAllData';
 import ReviewsData from './ReviewsData';
 
@@ -17,7 +16,7 @@ const Reviews = () => {
                 setReviews(v)
 
             })
-    }, [])
+    }, [user.email])
 
     useEffect(() => {
         fetch("https://damp-taiga-56462.herokuapp.com/reviews")

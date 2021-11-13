@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Button } from 'react-bootstrap';
+import { Carousel} from 'react-bootstrap';
 import ReactPlayer from 'react-player';
 import w1 from "../../../videos/rolex.webm"
 import w2 from "../../../videos/citizen.mp4"
