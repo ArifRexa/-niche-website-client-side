@@ -34,7 +34,7 @@ const Login = () => {
     }
     return (
         <div>
-            <h1>Please Log in</h1>
+            <h1 className="fw-bold my-5 text-center">Please Log in</h1>
 
             <Container className="w-50">
                 {<form onSubmit={handleSubmit}>

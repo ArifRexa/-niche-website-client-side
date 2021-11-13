@@ -64,7 +64,7 @@ const Register = () => {
     }
     return (
         <div>
-            <h1>Registration</h1>
+            <h1 className="fw-bold my-5 text-center">Registration</h1>
             <Container className="w-50">
                 {!isLoading && <form onSubmit={handleSubmit}>
 
