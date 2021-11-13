@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Yuji+Boku&display=swap');
 body{
   padding-top: 55px;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 
 .App {

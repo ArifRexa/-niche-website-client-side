@@ -34,9 +34,9 @@ const DashBoard = () => {
                         <Nav className="me-auto">
                             <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight:"600" }} to="/products">Products</NavLink>
                             
-                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "2px", fontWeight:"600" }} to={`${url}/myorders`}>My Orders</NavLink>
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight:"600" }} to={`${url}/myorders`}>My Orders</NavLink>
                             <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px",fontWeight:"600" }} to={`${url}/paymentsystem`}>Payment Method</NavLink>
-                            <NavLink as={Link} style={{ textDecoration: "none", color: "white" , fontWeight:"600"}} to={`${url}/review`}>Review</NavLink>
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white" , fontWeight:"600"}} to={`${url}/review`}>Reviews</NavLink>
 
                             
                         </Nav>
