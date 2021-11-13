@@ -18,7 +18,7 @@ const Banner = () => {
                         height="100%" url={w1} playing="true" loop="true" muted="true"></ReactPlayer>
 
                     <Carousel.Caption>
-                        <Link to="/products"><Button>Explore Now</Button></Link>
+                        <Link to="/products" style={{textDecoration:"none", color:"white"}}>Explore Now</Link>
                     </Carousel.Caption>
                 </Carousel.Item>
 
@@ -27,7 +27,7 @@ const Banner = () => {
                         height="100%" url={w2} playing="true" loop="true" muted="true"></ReactPlayer>
 
                     <Carousel.Caption>
-                        <Link to="/products"><Button>Explore Now</Button></Link>
+                        <Link to="/products" style={{textDecoration:"none", color:"white"}}>Explore Now</Link>
 
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -36,7 +36,7 @@ const Banner = () => {
                     <ReactPlayer className="react-player" width="100%"
                         height="100%" url={w3} playing="true" loop="true" muted="true"></ReactPlayer>
                     <Carousel.Caption>
-                        <Link to="/products"><Button>Explore Now</Button></Link>
+                        <Link to="/products" style={{textDecoration:"none", color:"white"}}>Explore Now</Link>
 
                     </Carousel.Caption>
                 </Carousel.Item>

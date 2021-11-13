@@ -3,8 +3,8 @@ import { Card, Spinner } from 'react-bootstrap';
 import ReactStars from "react-rating-stars-component";
 import useAuth from '../../../hooks/useAuth';
 
-const ReviewsData = (props) => {
-    const { email, comment, name, rating } = props.review
+const ReviewsAllData = (props) => {
+    const { email, comment, name, rating } = props.allreview
     const {isLoading} = useAuth();
     if (isLoading) {
         return <Spinner className="item-center mt-5" animation="border" variant="info" />
@@ -13,9 +13,9 @@ const ReviewsData = (props) => {
     return (
         <div>
             <Card>
-                <Card.Body className="fw-bold">
-                    <Card.Title className="fw-bold">Name: {name}</Card.Title>
-                    <Card.Text >
+                <Card.Body>
+                    <Card.Title>Name: {name}</Card.Title>
+                    <Card.Text>
                         <ReactStars
                             count={5}
                             value={rating}
@@ -33,4 +33,4 @@ const ReviewsData = (props) => {
     );
 };
 
-export default ReviewsData;
+export default ReviewsAllData;
