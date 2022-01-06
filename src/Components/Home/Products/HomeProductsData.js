@@ -9,14 +9,14 @@ const HomeProductsData = (props) => {
         <div>
             {/* <h4>Watch Model: {name}</h4> */}
             <Col>
-                <Card>
+                <Card style={{height: "550px"}}>
                     <Card.Img className="img-size" variant="top" src={imgUrl} />
                     <Card.Body>
-                        <Card.Title>Model Name: {name}</Card.Title>
+                        <Card.Title>Model Name: {name.slice(0,15)}</Card.Title>
                         <Card.Title>Brand Name: {Brand}</Card.Title>
                         <Card.Title>Price: $ {price}</Card.Title>
                         <Card.Text>
-                            {description}
+                            {description.slice(0,100)}
                         </Card.Text>
                         <Link to={`/order/${_id}`}>
                             <Button>Order Now</Button>
