@@ -5,16 +5,16 @@ import ManageAllOrdersData from './ManageAllOrdersData';
 
 const ManageAllOrders = () => {
     const [allOrder, setAllOrder] = useState([])
-    const {isLoading} = useAuth();
+    const { isLoading } = useAuth();
     useEffect(() => {
-        fetch(`https://damp-taiga-56462.herokuapp.com/orders`)
+        fetch(`https://kbowatchss.onrender.com/orders`)
             .then(res => res.json())
             .then(data => setAllOrder(data))
     }, [])
 
     if (isLoading) {
         return <Spinner className="item-center mt-5" animation="border" variant="info" />
-        
+
     }
     return (
         <div>

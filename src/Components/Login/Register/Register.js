@@ -43,7 +43,7 @@ const Register = () => {
             Name: name,
             Email: email
         }
-        fetch('https://damp-taiga-56462.herokuapp.com/users', {
+        fetch('https://kbowatchss.onrender.com/users', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -51,7 +51,7 @@ const Register = () => {
             body: JSON.stringify(users)
         })
 
-        fetch('https://damp-taiga-56462.herokuapp.com/users', {
+        fetch('https://kbowatchss.onrender.com/users', {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

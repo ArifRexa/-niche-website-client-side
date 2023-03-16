@@ -21,7 +21,7 @@ const AddProducts = () => {
         const watches = {
             ...productData
         }
-        fetch('https://damp-taiga-56462.herokuapp.com/watches', {
+        fetch('https://kbowatchss.onrender.com/watches', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

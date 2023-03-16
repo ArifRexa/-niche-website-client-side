@@ -5,15 +5,15 @@ import ManageProductsData from './ManageProductsData';
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([])
-    const {isLoading} = useAuth();
+    const { isLoading } = useAuth();
     useEffect(() => {
-        fetch("https://damp-taiga-56462.herokuapp.com/watches")
+        fetch("https://kbowatchss.onrender.com/watches")
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
     if (isLoading) {
         return <Spinner className="item-center mt-5" animation="border" variant="info" />
-        
+
     }
     return (
         <div>
@@ -22,7 +22,7 @@ const ManageProducts = () => {
                 <Row xs={1} md={2} lg={3}>
 
                     {
-                        products.map(product => <ManageProductsData key = {product._id} product = {product}></ManageProductsData>)
+                        products.map(product => <ManageProductsData key={product._id} product={product}></ManageProductsData>)
 
                     }
                 </Row>

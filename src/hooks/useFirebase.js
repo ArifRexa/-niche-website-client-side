@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import initializeFirebase from '../Components/FireBase/Firebase.init';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, updateProfile, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, updateProfile, signOut } from "firebase/auth";
 
 
 
@@ -79,11 +79,11 @@ const useFirebase = () => {
 
     });
     return () => unSubscribe;
-  }, [])
+  }, [auth])
 
 
   useEffect(() => {
-    fetch(`https://damp-taiga-56462.herokuapp.com/users/${user.email}`)
+    fetch(`https://kbowatchss.onrender.com/users/${user.email}`)
       .then(res => res.json())
       .then(data => setAdmin(data.admin))
   }, [user.email])

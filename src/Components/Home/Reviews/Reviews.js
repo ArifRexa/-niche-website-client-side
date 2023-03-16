@@ -9,7 +9,7 @@ const Reviews = () => {
     const [allReviews, setAllReviews] = useState([])
     const { user } = useAuth()
     useEffect(() => {
-        fetch("https://damp-taiga-56462.herokuapp.com/reviews")
+        fetch("https://kbowatchss.onrender.com/reviews")
             .then(res => res.json())
             .then(data => {
                 const v = data.filter(p => p.email === user.email)
@@ -19,7 +19,7 @@ const Reviews = () => {
     }, [user.email])
 
     useEffect(() => {
-        fetch("https://damp-taiga-56462.herokuapp.com/reviews")
+        fetch("https://kbowatchss.onrender.com/reviews")
             .then(res => res.json())
             .then(data => setAllReviews(data))
     }, [])
@@ -42,10 +42,10 @@ const Reviews = () => {
             <Container>
                 <Row xs={1} md={2} lg={3}>
                     {
-                        allReviews.map(allreview => <ReviewsAllData 
+                        allReviews.map(allreview => <ReviewsAllData
                             key={allreview._id}
                             allreview={allreview}
-                            ></ReviewsAllData>)
+                        ></ReviewsAllData>)
                     }
                 </Row>
             </Container>

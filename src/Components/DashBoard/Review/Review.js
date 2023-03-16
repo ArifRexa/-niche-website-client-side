@@ -16,10 +16,10 @@ const Review = () => {
 
 
     useEffect(() => {
-        fetch("https://damp-taiga-56462.herokuapp.com/reviews")
-        .then(res => res.json())
-        .then(data => setReviews(data))
-    },[])
+        fetch("https://kbowatchss.onrender.com/reviews")
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
 
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -43,7 +43,7 @@ const Review = () => {
         }
         console.log(reviews);
 
-        fetch("https://damp-taiga-56462.herokuapp.com/reviews", {
+        fetch("https://kbowatchss.onrender.com/reviews", {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -69,9 +69,9 @@ const Review = () => {
                     <Row xs={1} md={2} lg={3}>
 
                         {
-                            reviews.map(review => <ReviewData 
-                            key={review._id}
-                            review={review}
+                            reviews.map(review => <ReviewData
+                                key={review._id}
+                                review={review}
                             ></ReviewData>)
 
 

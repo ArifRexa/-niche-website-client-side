@@ -16,7 +16,7 @@ const PlaceOrder = () => {
 
 
     useEffect(() => {
-        fetch(`https://damp-taiga-56462.herokuapp.com/watches/${_id}`)
+        fetch(`https://kbowatchss.onrender.com/watches/${_id}`)
             .then(res => res.json())
             .then(data => setDetails(data))
     }, [_id])
@@ -48,7 +48,7 @@ const PlaceOrder = () => {
 
         }
         console.log(order);
-        fetch("https://damp-taiga-56462.herokuapp.com/orders", {
+        fetch("https://kbowatchss.onrender.com/orders", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

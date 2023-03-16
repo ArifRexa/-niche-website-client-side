@@ -8,7 +8,7 @@ const ManageProductsData = (props) => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure? Do you want to cancel this product?")
         if (proceed) {
-            const url = `https://damp-taiga-56462.herokuapp.com/watches/${id}`;
+            const url = `https://kbowatchss.onrender.com/watches/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

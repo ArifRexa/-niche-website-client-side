@@ -4,28 +4,28 @@ import useAuth from '../../../hooks/useAuth';
 import MyOrdersData from './MyOrdersData';
 
 const MyOrders = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const [myOrder, setMyOrder] = useState([])
-    useEffect(() =>{
-        fetch(`https://damp-taiga-56462.herokuapp.com/orders`)
-        .then(res => res.json())
-        .then(data => {
-            const v = data.filter(p => p.email === user.email)
-            setMyOrder(v)
+    useEffect(() => {
+        fetch(`https://kbowatchss.onrender.com/orders`)
+            .then(res => res.json())
+            .then(data => {
+                const v = data.filter(p => p.email === user.email)
+                setMyOrder(v)
 
-        })
-    },[user.email])
+            })
+    }, [user.email])
     return (
         <div>
             <Container>
-            <h1 className="my-5 text-center fw-bold">My Orders</h1>
-            <Row xs={1} md={2} lg={3}>
-                {
-                    myOrder.map(order => <MyOrdersData key = {order._id} order={order}></MyOrdersData>)
-                }
-            </Row>
+                <h1 className="my-5 text-center fw-bold">My Orders</h1>
+                <Row xs={1} md={2} lg={3}>
+                    {
+                        myOrder.map(order => <MyOrdersData key={order._id} order={order}></MyOrdersData>)
+                    }
+                </Row>
             </Container>
-            
+
         </div>
     );
 };

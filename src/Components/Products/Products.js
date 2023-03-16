@@ -5,16 +5,16 @@ import ProductsData from './ProductsData';
 
 const Products = () => {
     const [watches, setWatches] = useState([])
-    const {isLoading} = useAuth();
+    const { isLoading } = useAuth();
     useEffect(() => {
-        fetch("https://damp-taiga-56462.herokuapp.com/watches")
+        fetch("https://kbowatchss.onrender.com/watches")
             .then(res => res.json())
             .then(data => setWatches(data))
     }, [])
 
     if (isLoading) {
         return <Spinner className="item-center mt-5" animation="border" variant="info" />
-        
+
     }
 
     return (

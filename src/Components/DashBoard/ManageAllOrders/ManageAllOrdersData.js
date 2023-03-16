@@ -9,13 +9,13 @@ import { Card, Button } from 'react-bootstrap';
 // "Brand": "Hublot",
 // "Price": 899
 const ManageAllOrdersData = (props) => {
-    const {_id, name, email, address, Model, Brand, Price, status} = props.orderall;
+    const { _id, name, email, address, Model, Brand, Price, status } = props.orderall;
     const [user, setUser] = useState({})
 
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure? Do you want to cancel this Order?")
         if (proceed) {
-            const url = `https://damp-taiga-56462.herokuapp.com/orders/${id}`;
+            const url = `https://kbowatchss.onrender.com/orders/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -35,7 +35,7 @@ const ManageAllOrdersData = (props) => {
     }
 
     const hanldeApproved = (e) => {
-        const url = `https://damp-taiga-56462.herokuapp.com/orders/${_id}`;
+        const url = `https://kbowatchss.onrender.com/orders/${_id}`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -53,7 +53,7 @@ const ManageAllOrdersData = (props) => {
             })
 
     }
-    
+
     return (
         <div>
             <Card>

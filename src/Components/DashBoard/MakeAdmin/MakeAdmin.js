@@ -13,7 +13,7 @@ const MakeAdmin = () => {
 
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch("https://damp-taiga-56462.herokuapp.com/users/admin", {
+        fetch("https://kbowatchss.onrender.com/users/admin", {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -31,23 +31,23 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-                <h1 className="fw-bold my-5 text-center">Make Admin</h1>
-                {
-                    success && <Alert variant="success">
-                        <FontAwesomeIcon icon={faCheckCircle} /> Admin Make Successfully !
-                    </Alert>
-                }
-                <Container className="w-50">
-                    <Form className="mb-3" onSubmit={handleAdminSubmit}>
-                        <Form.Control
-                            onBlur={handleOnBlur}
-                            type="email"
-                            placeholder="Email"
-                        />
-                        <Button className="mt-3" type="submit">Make Admin</Button>
-                    </Form>
+            <h1 className="fw-bold my-5 text-center">Make Admin</h1>
+            {
+                success && <Alert variant="success">
+                    <FontAwesomeIcon icon={faCheckCircle} /> Admin Make Successfully !
+                </Alert>
+            }
+            <Container className="w-50">
+                <Form className="mb-3" onSubmit={handleAdminSubmit}>
+                    <Form.Control
+                        onBlur={handleOnBlur}
+                        type="email"
+                        placeholder="Email"
+                    />
+                    <Button className="mt-3" type="submit">Make Admin</Button>
+                </Form>
 
-                </Container>
+            </Container>
 
         </div>
     );
